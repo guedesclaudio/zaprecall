@@ -8,10 +8,16 @@ function Card({
 
     const [hidesCardTitle, setHidesCardTitle] = React.useState("card-title")
     const [showQuestion, setShowQuestion] = React.useState("hidden")
+    const [showAnswer, setShowAnswer] = React.useState("hidden")
 
     function openQuestion() {
         setHidesCardTitle("hidden")
         setShowQuestion("question")
+    }
+
+    function openAnswer() {
+        setShowQuestion("hidden")
+        setShowAnswer("answer")
     }
     
     return (
@@ -20,10 +26,17 @@ function Card({
                 <p>{title}</p>
                 <img src = "./img/arrow.png" onClick = {openQuestion}/>
             </div>
-            
             <div className = {showQuestion}>
                 <p>{question}</p>
-                <img src = "./img/vector.png"/>
+                <img src = "./img/vector.png" onClick = {openAnswer}/>
+            </div>
+            <div className = {showAnswer}>
+                <p>{answer}</p>
+                <div className = "buttons">
+                    <button>Não lembrei</button>
+                    <button>Quase não lembrei</button>
+                    <button>Zap!</button>
+                </div>
             </div>
         </div>
     )

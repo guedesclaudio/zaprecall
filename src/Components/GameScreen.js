@@ -10,7 +10,9 @@ export default function GameScreen() {
     return (
         <div className = {hidesGame}>
             <LogoBrand/>
-            <Cards/>
+            <div className="cards">
+                <Cards/>
+            </div>
             <Footer/>
         </div>
     )

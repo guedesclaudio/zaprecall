@@ -53,6 +53,10 @@ body {
     margin-bottom: 36px;
 }
 
+.cards {
+    margin-bottom: 100px;
+}
+
 .card {
     margin: 20px auto;
     width: 300px;
@@ -82,6 +86,7 @@ body {
 }
 
 .footer {
+    margin-top: 180px;
     width: 100%;
     height: 70px;
     background-color: #FFFFFF;
@@ -100,17 +105,52 @@ body {
     color: #333333;
 }
 
-.question {
-    height: 130px;
+.question, .answer {
+    min-height: 130px;
 }
 
-.question p {
+.question p, .answer p {
     padding-top: 20px;
     padding-left: 10px;
     font-family: 'Recursive', sans-serif;
     font-size: 18px;
     font-weight: 400px;
     color: #333333;
+}
+
+.question img {
+    padding-top: 60px;
+    padding-left: 250px;
+}
+
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttons button {
+    width: 85px;
+    height: 37px;
+    border-radius: 5px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Recursive', sans-serif;
+}
+
+.buttons :nth-child(1) {
+    background-color: #FF3030;
+}
+
+.buttons :nth-child(2) {
+    background-color: #FF922E;
+}
+
+.buttons :nth-child(3) {
+    background-color: #2FBE34;
 }
 
 .hidden {
