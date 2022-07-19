@@ -153,6 +153,10 @@ body {
     background-color: #2FBE34;
 }
 
+.scratch-title {
+    text-decoration-line: line-through;
+}
+
 .hidden {
     display: none;
 }

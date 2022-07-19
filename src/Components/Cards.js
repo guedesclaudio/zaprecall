@@ -9,6 +9,8 @@ function Card({
     const [hidesCardTitle, setHidesCardTitle] = React.useState("card-title")
     const [showQuestion, setShowQuestion] = React.useState("hidden")
     const [showAnswer, setShowAnswer] = React.useState("hidden")
+    const [titleState, setTitleState] = React.useState("")
+    const [color, setColor] = React.useState()
 
     function openQuestion() {
         setHidesCardTitle("hidden")
@@ -19,11 +21,33 @@ function Card({
         setShowQuestion("hidden")
         setShowAnswer("answer")
     }
+
+    function correctAnswer(type) {
+        setShowAnswer("hidden")
+        setHidesCardTitle("card-title")
+        setTitleState("scratch-title")
+        if (type === "not") setColor(red)
+        if (type === "almost") setColor(yellow)
+        if (type === "zap") setColor(green)
+    }
+
+    const red = {
+        color: "#FF3030"
+    }
+
+    const green = {
+        color: "#2FBE34"
+    }
+
+    const yellow =  {
+        color: "#FF922E"
+    }
+
     
     return (
         <div className = "card">
             <div className = {hidesCardTitle}>
-                <p>{title}</p>
+                <p className = {titleState} style = {color}>{title}</p>
                 <img src = "./img/arrow.png" onClick = {openQuestion}/>
             </div>
             <div className = {showQuestion}>
@@ -33,9 +57,9 @@ function Card({
             <div className = {showAnswer}>
                 <p>{answer}</p>
                 <div className = "buttons">
-                    <button>Não lembrei</button>
-                    <button>Quase não lembrei</button>
-                    <button>Zap!</button>
+                    <button onClick={() => correctAnswer("not")}>Não lembrei</button>
+                    <button onClick={() => correctAnswer("almost")}>Quase não lembrei</button>
+                    <button onClick={() => correctAnswer("zap")}>Zap!</button>
                 </div>
             </div>
         </div>
