@@ -12,10 +12,14 @@ function Card({
     const [showAnswer, setShowAnswer] = React.useState("hidden")
     const [titleState, setTitleState] = React.useState("")
     const [color, setColor] = React.useState()
-
+    const [iconAnswer, setIconAnswer] = React.useState("./img/arrow.png")
+    const [checkQuestion, setCheckQuestion] = React.useState(false)
+    
     function openQuestion() {
-        setHidesCardTitle("hidden")
-        setShowQuestion("question")
+        if (checkQuestion === false) {
+            setHidesCardTitle("hidden")
+            setShowQuestion("question")
+        }
     }
 
     function openAnswer() {
@@ -27,9 +31,20 @@ function Card({
         setShowAnswer("hidden")
         setHidesCardTitle("card-title")
         setTitleState("scratch-title")
-        if (type === "not") setColor(red)
-        if (type === "almost") setColor(yellow)
-        if (type === "zap") setColor(green)
+        setCheckQuestion(true)
+        if (type === "not") {
+            setColor(red)
+            setIconAnswer("./img/not.png")
+        }
+        if (type === "almost") {
+            setColor(yellow)
+            setIconAnswer("./img/almost.png")
+        }
+        if (type === "zap") {
+            setColor(green)
+            setIconAnswer("./img/zap.png")
+        }
+
     }
 
     const red = {
@@ -49,7 +64,7 @@ function Card({
         <div className = "card">
             <div className = {hidesCardTitle}>
                 <p className = {titleState} style = {color}>{title}</p>
-                <img src = "./img/arrow.png" onClick = {openQuestion}/>
+                <img src = {iconAnswer} onClick = {openQuestion}/>
             </div>
             <div className = {showQuestion}>
                 <p>{question}</p>
