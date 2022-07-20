@@ -1,21 +1,29 @@
 import React from "react";
 
-export default function Footer() {
-
-    const [answered, setAnswered] = React.useState(0)
-    const [showResult, setShowResult] = React.useState("result hidden")
+export default function Footer({counter, iconResult, showResult, yesOrNot}) {
+    
     const reference = [
-        {emoji:"&#x1F973;", title:"Parabéns!", text:"Você não esqueceu de nenhum flashcard!"},
-        {emoji:"&#128546;", title:"Putz...", text:"Ainda faltam alguns... Mas não desanime!"},
+        {emoji:"./img/sadface.png", title:"Putz...", text:"Ainda faltam alguns... Mas não desanime!"},
+        {emoji:"./img/happyface.png", title:"Parabéns!", text:"Você não esqueceu de nenhum flashcard!"},
     ]
 
+    iconResult = iconResult.split(" ")
+    
     return (
         <div className = "footer">
             <div className = {showResult}>
-                <h3>&#x1F973; {reference[0].title}</h3>
-                <p>{reference[0].text}</p>
+                <div>
+                    <img src = {reference[yesOrNot].emoji}/>
+                    <h3>
+                        {reference[yesOrNot].title}
+                    </h3>
+                </div>
+                <p>{reference[yesOrNot].text}</p>
             </div>
-            <h1>{answered}/4 CONCLUÍDOS</h1>
+            <h1>{counter}/4 CONCLUÍDOS</h1>
+            <div className="icons-result">
+                {iconResult.map((value, index) => <img key = {index} src = {value}/>)}
+            </div>
         </div>
     )
 }

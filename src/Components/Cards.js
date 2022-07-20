@@ -1,10 +1,16 @@
 import React from "react";
-
+import Footer from "./Footer";
 
 function Card({
     title,
     question,
-    answer
+    answer,
+    counter,
+    setCounter,
+    iconResult,
+    setIconResult,
+    setShowResult,
+    setYesOrNot
 }) {
 
     const [hidesCardTitle, setHidesCardTitle] = React.useState("card-title")
@@ -14,6 +20,9 @@ function Card({
     const [color, setColor] = React.useState()
     const [iconAnswer, setIconAnswer] = React.useState("./img/arrow.png")
     const [checkQuestion, setCheckQuestion] = React.useState(false)
+    const red = {color: "#FF3030"}
+    const green = {color: "#2FBE34"}
+    const yellow =  {color: "#FF922E"}
     
     function openQuestion() {
         if (checkQuestion === false) {
@@ -32,33 +41,29 @@ function Card({
         setHidesCardTitle("card-title")
         setTitleState("scratch-title")
         setCheckQuestion(true)
+        setCounter(counter+1)
+
+        if (counter === 3) {
+            setShowResult("result")
+        }
+
         if (type === "not") {
             setColor(red)
             setIconAnswer("./img/not.png")
+            setIconResult(iconResult + " ./img/not.png")
+            setYesOrNot(0)
         }
         if (type === "almost") {
             setColor(yellow)
             setIconAnswer("./img/almost.png")
+            setIconResult(iconResult + " ./img/almost.png")
         }
         if (type === "zap") {
             setColor(green)
             setIconAnswer("./img/zap.png")
+            setIconResult(iconResult + " ./img/zap.png")
         }
-
     }
-
-    const red = {
-        color: "#FF3030"
-    }
-
-    const green = {
-        color: "#2FBE34"
-    }
-
-    const yellow =  {
-        color: "#FF922E"
-    }
-
 
     return (
         <div className = "card">
@@ -84,16 +89,50 @@ function Card({
 
 export default function Cards() {
 
+    const draw = Math.floor(Math.random() * 2)
+    const [counter, setCounter] = React.useState(0)
+    const [iconResult, setIconResult] = React.useState("")
+    const [showResult, setShowResult] = React.useState("result hidden")
+    const [yesOrNot, setYesOrNot] = React.useState(1)
     const questions = [
-        {title:"Pergunta 1", question:["O que é JSX?", "O ReactDOM nos ajuda __"] , answer:["Uma extensão de linguagem do JavaScript", "interagindo com a DOM para colocar componentes React na mesma"], draw: Math.floor(Math.random() * 2)},
-        {title:"Pergunta 2", question:["O React é __", "Usamos o npm para __"], answer:["uma biblioteca JavaScript para construção de interfaces", "gerenciar os pacotes necessários e suas dependências"], draw: Math.floor(Math.random() * 2)},
-        {title:"Pergunta 3", question:["Componentes devem iniciar com __ ", "Usamos props para __"], answer:["letra maiúscula", "passar diferentes informações para componentes "], draw: Math.floor(Math.random() * 2)},
-        {title:"Pergunta 4", question:["Podemos colocar __ dentro do JSX", "Usamos estado (state) para __"], answer:["expressões", "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"], draw: Math.floor(Math.random() * 2)}
+        {
+            title:"Pergunta 1",
+            question:["O que é JSX?", "O ReactDOM nos ajuda __"], 
+            answer:["Uma extensão de linguagem do JavaScript", "interagindo com a DOM para colocar componentes React na mesma"], 
+            draw: draw
+        },
+        {
+            title:"Pergunta 2",
+            question:["O React é __", "Usamos o npm para __"],
+            answer:["uma biblioteca JavaScript para construção de interfaces", "gerenciar os pacotes necessários e suas dependências"], 
+            draw: draw
+        },
+        {
+            title:"Pergunta 3", 
+            question:["Componentes devem iniciar com __ ", "Usamos props para __"], 
+            answer:["letra maiúscula", "passar diferentes informações para componentes "], 
+            draw: draw
+        },
+        {
+            title:"Pergunta 4", 
+            question:["Podemos colocar __ dentro do JSX", "Usamos estado (state) para __"], 
+            answer:["expressões", "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"], 
+            draw: draw
+        }
     ]
     
-    //const draw = Math.floor(Math.random() * 2) 
-
     return (
-        questions.map((value, index) => <Card key = {index} title = {value.title} question = {value.question[value.draw]} answer = {value.answer[value.draw]}/>)
+        <>
+            <div className="cards">
+                {questions.map((value, index) => 
+                <Card yesOrNot = {yesOrNot} setYesOrNot = {setYesOrNot} 
+                showResult = {showResult} setShowResult = {setShowResult} 
+                counter = {counter} setCounter = {setCounter} iconResult = {iconResult} 
+                setIconResult = {setIconResult} key = {index} title = {value.title} 
+                question = {value.question[value.draw]} answer = {value.answer[value.draw]} />)
+                }
+            </div>
+            <Footer  counter = {counter} iconResult = {iconResult} showResult = {showResult} yesOrNot = {yesOrNot}/>
+        </>
     )
 }

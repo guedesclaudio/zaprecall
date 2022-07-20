@@ -1,20 +1,14 @@
 import React from "react";
 import LogoBrand from "./LogoBrand";
 import Cards from "./Cards";
-import Footer from "./Footer";
 
 
-export default function GameScreen() {
+export default function GameScreen({hidesGame}) {
 
-    const [hidesGame, setHidesGame] = React.useState("hidden")
-    
     return (
         <div className = {hidesGame}>
             <LogoBrand/>
-            <div className="cards">
-                <Cards/>
-            </div>
-            <Footer/>
+            <Cards/>
         </div>
     )
 }
