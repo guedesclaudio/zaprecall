@@ -3,9 +3,9 @@ import LogoBrand from "./LogoBrand";
 
 export default function WelcomeScreen() {
 
-    const [hidesHome, setHidesHome] = React.useState("home hidden")
+    const [hidesHome, setHidesHome] = React.useState("home")
 
-    function hidden () {
+    function startsGame () {
         setHidesHome("home hidden")
     }
 
@@ -13,7 +13,7 @@ export default function WelcomeScreen() {
         <div className = {hidesHome}>
             <img src = "./img/lightning.png"/>
             <h1 >ZapRecall</h1>
-            <button  onClick={hidden}>Iniciar Recall!</button>
+            <button  onClick={startsGame}>Iniciar Recall!</button>
         </div>
     )
 }

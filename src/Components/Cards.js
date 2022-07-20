@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function Card({
     title,
     question,
@@ -43,7 +44,7 @@ function Card({
         color: "#FF922E"
     }
 
-    
+
     return (
         <div className = "card">
             <div className = {hidesCardTitle}>
@@ -69,14 +70,15 @@ function Card({
 export default function Cards() {
 
     const questions = [
-        {title:"Pergunta 1", question:"O que é JSX?" , answer:"Uma extensão de linguagem do JavaScript"},
-        {title:"Pergunta 2", question:"O React é __", answer:"uma biblioteca JavaScript para construção de interfaces"},
-        {title:"Pergunta 3", question:"Componentes devem iniciar com __ ", answer:"letra maiúscula"},
-        {title:"Pergunta 4", question:"Podemos colocar __ dentro do JSX", answer:"expressões"}
+        {title:"Pergunta 1", question:["O que é JSX?", "O ReactDOM nos ajuda __"] , answer:["Uma extensão de linguagem do JavaScript", "interagindo com a DOM para colocar componentes React na mesma"], draw: Math.floor(Math.random() * 2)},
+        {title:"Pergunta 2", question:["O React é __", "Usamos o npm para __"], answer:["uma biblioteca JavaScript para construção de interfaces", "gerenciar os pacotes necessários e suas dependências"], draw: Math.floor(Math.random() * 2)},
+        {title:"Pergunta 3", question:["Componentes devem iniciar com __ ", "Usamos props para __"], answer:["letra maiúscula", "passar diferentes informações para componentes "], draw: Math.floor(Math.random() * 2)},
+        {title:"Pergunta 4", question:["Podemos colocar __ dentro do JSX", "Usamos estado (state) para __"], answer:["expressões", "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"], draw: Math.floor(Math.random() * 2)}
     ]
     
+    //const draw = Math.floor(Math.random() * 2) 
 
     return (
-        questions.map(value => <Card title = {value.title} question = {value.question} answer = {value.answer}/>)
+        questions.map((value, index) => <Card key = {index} title = {value.title} question = {value.question[value.draw]} answer = {value.answer[value.draw]}/>)
     )
 }

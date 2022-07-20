@@ -3,10 +3,11 @@ import LogoBrand from "./LogoBrand";
 import Cards from "./Cards";
 import Footer from "./Footer";
 
+
 export default function GameScreen() {
 
-    const [hidesGame, setHidesGame] = React.useState("")
-
+    const [hidesGame, setHidesGame] = React.useState("hidden")
+    
     return (
         <div className = {hidesGame}>
             <LogoBrand/>
@@ -17,3 +18,4 @@ export default function GameScreen() {
         </div>
     )
 }
+
