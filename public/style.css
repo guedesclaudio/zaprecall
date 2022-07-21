@@ -56,10 +56,6 @@ input, select {
     outline: none;
 }
 
-input {
-    margin-bottom: 20px;
-}
-
 .error {
     height: 20px;
 }
