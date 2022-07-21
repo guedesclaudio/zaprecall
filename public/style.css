@@ -23,6 +23,7 @@ button:hover {
 
 .home h1, .logo h1 {
     margin-top: 40px;
+    margin-bottom: 24px;
     font-size: 36px;
     font-weight: 400;
     font-family: 'Righteous', cursive;
@@ -45,7 +46,6 @@ button:hover {
 }
 
 input, select {
-    margin-top: 10px;
     width: 246px;
     height: 43px;
     background-color: #FFFFFF;
@@ -54,6 +54,21 @@ input, select {
     border: none;
     text-align: center;
     outline: none;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+.error {
+    height: 20px;
+}
+
+.error p {
+    color: red;
+    font-weight: 400;
+    font-size: 12px;
+    font-family: 'Recursive', sans-serif;
 }
 
 .logo {

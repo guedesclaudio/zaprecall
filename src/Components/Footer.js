@@ -23,7 +23,7 @@ export default function Footer({
     ]
     
     const checking = iconResult.filter(value => value === "./img/almost.png" || value === "./img/zap.png")
-    if (checking.length >= userValueInput && userValueInput != "") {
+    if (checking.length >= userValueInput) {
         setYesOrNot(1)
     }
 
