@@ -4,7 +4,9 @@ export default function Footer({
     counter, 
     iconResult, 
     showResult, 
-    yesOrNot
+    yesOrNot,
+    setYesOrNot,
+    userValueInput
 }) {
     
     const reference = [
@@ -19,9 +21,13 @@ export default function Footer({
             text:"Você não esqueceu de nenhum flashcard!"
         }
     ]
-
-    //iconResult = iconResult.split(" ")
     
+    const checking = iconResult.filter(value => value === "./img/almost.png" || value === "./img/zap.png")
+    if (checking.length >= userValueInput && userValueInput != "") {
+        setYesOrNot(1)
+    }
+
+
     return (
         <div className = "footer">
             <div className = {showResult}>
@@ -38,7 +44,7 @@ export default function Footer({
                 {iconResult.map((value, index) => <img key = {index} src = {value}/>)}
             </div>
             <div className = {showResult}>
-                <button onClick = {() => window.location.reload()}>REINICIAR RECALL</button>
+                <button>REINICIAR RECALL</button> 
             </div>
         </div>
     )

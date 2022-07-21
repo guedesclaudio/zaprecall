@@ -44,6 +44,18 @@ button:hover {
     font-family: 'Recursive', sans-serif;
 }
 
+input, select {
+    margin-top: 10px;
+    width: 246px;
+    height: 43px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    color: #FB6B6B;
+    border: none;
+    text-align: center;
+    outline: none;
+}
+
 .logo {
     width: 240px;
     margin: 0 auto;

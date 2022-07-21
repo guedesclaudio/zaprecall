@@ -51,20 +51,17 @@ function Card({
         if (type === "not") {
             setColor(red)
             setIconAnswer("./img/not.png")
-            //setIconResult(iconResult + " ./img/not.png")
             setIconResult([...iconResult, "./img/not.png"])
             setYesOrNot(0)
         }
         if (type === "almost") {
             setColor(yellow)
             setIconAnswer("./img/almost.png")
-            //setIconResult(iconResult + " ./img/almost.png")
             setIconResult([...iconResult, "./img/almost.png"])
         }
         if (type === "zap") {
             setColor(green)
             setIconAnswer("./img/zap.png")
-            //setIconResult(iconResult + " ./img/zap.png")
             setIconResult([...iconResult, "./img/zap.png"])
         }
     }
@@ -99,12 +96,14 @@ export default function Cards({
     showResult, 
     setShowResult, 
     yesOrNot, 
-    setYesOrNot 
+    setYesOrNot,
+    userValueInput,
+    userValueSelect
 }) {
 
     const draw = Math.floor(Math.random() * 2)
     
-    const questions = [
+    const questions = [[
         {
             title:"Pergunta 1",
             question:["O que é JSX?", "O ReactDOM nos ajuda __"], 
@@ -129,13 +128,52 @@ export default function Cards({
             answer:["expressões", "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"], 
             draw
         }
-    ]
+    ],[
+        {
+            title:"Pergunta 1",
+            question:["O que é HTML?", "Uma div é __"], 
+            answer:["linguagem de marcação utilizada na Web", "um elemento de divisão"], 
+            draw
+        },
+        {
+            title:"Pergunta 2",
+            question:["Como pegamos dados do usuário?", "É possível gerar um formulário em HTML?"],
+            answer:["através de inputs", "Sim"], 
+            draw
+        },
+        {
+            title:"Pergunta 3", 
+            question:["Como importamos estilo para o HTML?", "É boa prática estilizar o HTML diretamente?"], 
+            answer:["Com a tag <link/>", "Não"], 
+            draw
+        },
+        {
+            title:"Pergunta 4", 
+            question:["Quando foi criado o HTML?", "Por que HTML não é uma linguagem de programação?"], 
+            answer:["1990", "Pois não possui lógica e não cria funcionalidade dinâmica"], 
+            draw
+        }
+    ]]
     
+    if (userValueSelect === "JSX") {
+        return (
+            <div className="cards">
+                {
+                questions[0].map((value, index) => 
+                <Card userValueInput = {userValueInput} yesOrNot = {yesOrNot} setYesOrNot = {setYesOrNot} 
+                showResult = {showResult} setShowResult = {setShowResult} 
+                counter = {counter} setCounter = {setCounter} iconResult = {iconResult} 
+                setIconResult = {setIconResult} key = {index} title = {value.title} 
+                question = {value.question[value.draw]} answer = {value.answer[value.draw]} />)
+                }
+            </div>
+        )
+    }
     return (
         <div className="cards">
             {
-            questions.map((value, index) => 
-            <Card yesOrNot = {yesOrNot} setYesOrNot = {setYesOrNot} 
+            questions[1].map((value, index) => 
+            <Card userValueInput = {userValueInput} yesOrNot = {yesOrNot} setYesOrNot = {setYesOrNot} 
             showResult = {showResult} setShowResult = {setShowResult} 
             counter = {counter} setCounter = {setCounter} iconResult = {iconResult} 
             setIconResult = {setIconResult} key = {index} title = {value.title} 
