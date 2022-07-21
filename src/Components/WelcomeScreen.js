@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function WelcomeScreen({hidesHome, setHidesHome, setHidesGame}) {
+export default function WelcomeScreen({
+    hidesHome, 
+    setHidesHome, 
+    setHidesGame
+}) {
     
     function startsGame () {
         setHidesHome("home hidden")

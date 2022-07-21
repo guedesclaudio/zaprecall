@@ -4,6 +4,14 @@ body {
     background-color: #FB6B6B;
 }
 
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(0.9);
+}
+
 .home {
     width: 60%;
     margin: 100px auto;
@@ -54,7 +62,7 @@ body {
 }
 
 .cards {
-    margin-bottom: 160px;
+    margin-bottom: 100px;
 }
 
 .card {
@@ -86,7 +94,6 @@ body {
 }
 
 .footer {
-    margin-top: 180px;
     width: 100%;
     min-height: 70px;
     background-color: #FFFFFF;
@@ -104,7 +111,6 @@ body {
     font-weight: 400;
     font-family: 'Recursive', sans-serif;
     color: #333333;
-    /*margin-bottom: 14px;*/
 }
 
 .result div {
@@ -133,6 +139,24 @@ body {
     width: 222px;
     text-align: center;
     color: #333333;
+}
+
+.result button {
+    cursor: pointer;
+    margin: 10px 0;
+    width: 167px;
+    height: 32px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FB6B6B;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Recursive', sans-serif;
+}
+
+.result button:hover {
+    filter: brightness(0.9);
 }
 
 .question {
@@ -197,15 +221,15 @@ body {
 }
 
 .icons-result {
-    margin-top: 6px;
-    margin-bottom: 14px;
+    width: 110px;
+    min-height: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .icons-result img {
-    margin-left: 4px;
+    margin: 8px 2px;
 }
 
 .hidden {
