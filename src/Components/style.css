@@ -116,6 +116,10 @@ input, select {
     margin-right: 20px;
 }
 
+.click {
+    cursor: pointer;
+}
+
 .footer {
     width: 100%;
     min-height: 70px;
@@ -183,7 +187,7 @@ input, select {
 }
 
 .question {
-    min-height: 130px;
+    height: 140px;
     position: relative;/**/
 }
 
@@ -200,13 +204,18 @@ input, select {
     color: #333333;
 }
 
+.question p {
+    height: 52px;
+}
+
 .answer p {
     height: 76px;
 }
 
 .question img {
-    margin-top: 60px;
-    margin-left: 250px;
+    margin-top: 50px;
+    margin-left: 260px;
+    cursor: pointer;
 }
 
 .buttons {

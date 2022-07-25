@@ -25,6 +25,7 @@ function Card({
     const [color, setColor] = React.useState()
     const [iconAnswer, setIconAnswer] = React.useState(arrow)
     const [checkQuestion, setCheckQuestion] = React.useState(false)
+    const [click, setClick] = React.useState("click")
     const red = {color: "#FF3030"}
     const green = {color: "#2FBE34"}
     const yellow =  {color: "#FF922E"}
@@ -48,6 +49,7 @@ function Card({
         setTitleState("scratch-title")
         setCheckQuestion(true)
         setCounter(counter+1)
+        setClick("")
 
         if (counter === 3) {
             setShowResult("result")
@@ -75,7 +77,7 @@ function Card({
         <div className = "card">
             <div className = {hidesCardTitle}>
                 <p className = {titleState} style = {color}>{title}</p>
-                <img src = {iconAnswer} onClick = {openQuestion}/>
+                <img src = {iconAnswer} onClick = {openQuestion} className = {click}/>
             </div>
             <div className = {showQuestion}>
                 <p>{question}</p>
