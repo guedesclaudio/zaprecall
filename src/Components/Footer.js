@@ -1,4 +1,8 @@
 import React from "react";
+import sadface from "./img/sadface.png"
+import happyface from "./img/happyface.png"
+import almost from "./img/almost.png"
+import zap from "./img/zap.png"
 
 export default function Footer({
     counter, 
@@ -11,18 +15,19 @@ export default function Footer({
     
     const reference = [
         {
-            emoji:"./img/sadface.png", 
+            emoji:sadface, 
             title:"Putz...", 
             text:"Ainda faltam alguns... Mas não desanime!"
         },
         {
-            emoji:"./img/happyface.png", 
+            emoji:happyface, 
             title:"Parabéns!", 
             text:"Você não esqueceu de nenhum flashcard!"
         }
     ]
     
-    const checking = iconResult.filter(value => value === "./img/almost.png" || value === "./img/zap.png")
+    const checking = iconResult.filter(value => value === almost || value === zap)
+    
     if (checking.length >= userValueInput) {
         setYesOrNot(1)
     }
@@ -43,9 +48,12 @@ export default function Footer({
             <div className="icons-result">
                 {iconResult.map((value, index) => <img key = {index} src = {value}/>)}
             </div>
-            <div className = {showResult}>
-                <button>REINICIAR RECALL</button> 
-            </div>
         </div>
     )
 }
+
+/*
+<div className = {showResult}>
+    <button>REINICIAR RECALL</button> 
+</div>
+*/

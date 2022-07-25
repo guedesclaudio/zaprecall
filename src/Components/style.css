@@ -184,7 +184,7 @@ input, select {
 
 .question {
     min-height: 130px;
-    position: relative;
+    position: relative;/**/
 }
 
 .answer {
@@ -205,8 +205,8 @@ input, select {
 }
 
 .question img {
-    padding-top: 60px;
-    padding-left: 250px;
+    margin-top: 60px;
+    margin-left: 250px;
 }
 
 .buttons {

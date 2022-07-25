@@ -1,4 +1,9 @@
 import React from "react";
+import vector from "./img/vector.png"
+import not from "./img/not.png"
+import almost from "./img/almost.png"
+import zap from "./img/zap.png"
+import arrow from "./img/arrow.png"
 
 
 function Card({
@@ -18,7 +23,7 @@ function Card({
     const [showAnswer, setShowAnswer] = React.useState("hidden")
     const [titleState, setTitleState] = React.useState("")
     const [color, setColor] = React.useState()
-    const [iconAnswer, setIconAnswer] = React.useState("./img/arrow.png")
+    const [iconAnswer, setIconAnswer] = React.useState(arrow)
     const [checkQuestion, setCheckQuestion] = React.useState(false)
     const red = {color: "#FF3030"}
     const green = {color: "#2FBE34"}
@@ -50,19 +55,19 @@ function Card({
 
         if (type === "not") {
             setColor(red)
-            setIconAnswer("./img/not.png")
-            setIconResult([...iconResult, "./img/not.png"])
+            setIconAnswer(not)
+            setIconResult([...iconResult, not])
             setYesOrNot(0)
         }
         if (type === "almost") {
             setColor(yellow)
-            setIconAnswer("./img/almost.png")
-            setIconResult([...iconResult, "./img/almost.png"])
+            setIconAnswer(almost)
+            setIconResult([...iconResult, almost])
         }
         if (type === "zap") {
             setColor(green)
-            setIconAnswer("./img/zap.png")
-            setIconResult([...iconResult, "./img/zap.png"])
+            setIconAnswer(zap)
+            setIconResult([...iconResult, zap])
         }
     }
 
@@ -74,7 +79,7 @@ function Card({
             </div>
             <div className = {showQuestion}>
                 <p>{question}</p>
-                <img src = "./img/vector.png" onClick = {openAnswer}/>
+                <img src = {vector} onClick = {openAnswer}/>
             </div>
             <div className = {showAnswer}>
                 <p>{answer}</p>

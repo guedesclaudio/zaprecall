@@ -1,4 +1,5 @@
 import React from "react";
+import lightning from "./img/lightning.png"
 
 export default function WelcomeScreen({
     hidesHome, 
@@ -43,7 +44,7 @@ export default function WelcomeScreen({
 
     return (
         <div className = {hidesHome}>
-            <img src = "./img/lightning.png" />
+            <img src = {lightning} />
             <h1>ZapRecall</h1>
             <div className = "error"><p>{messageError}</p></div>
             <input className = {showInput} type = "text" placeholder = "Digite a sua meta de zaps" onChange = {getInputValueInput}/>

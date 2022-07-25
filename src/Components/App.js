@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import WelcomeScreen from "./WelcomeScreen";
 import GameScreen from "./GameScreen";
+import "./style.css"
 
 
 export default function App() {
